@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>学びの動画ライブラリ｜長田絵里子</title>
 <meta name="description" content="恋愛・夫婦関係の深層心理を、動画と音声でわかりやすく学べるライブラリ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@900&display=swap" rel="stylesheet">
 <style>
 :root{
   --pink:#e6337f;--pink-dark:#c81f68;--pink-soft:#fff1f6;--pink-line:#f7c6da;
@@ -51,15 +54,37 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
 .rank .t{font-size:.88rem;line-height:1.45;font-weight:700;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 @media(max-width:860px){.hero{grid-template-columns:1fr}}
 
-/* thumbnail */
-.thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#f9c6da,#e6337f);overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.thumb .ph{position:absolute;left:10px;top:8px;color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.05em;opacity:.95}
-.thumb .play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.2)}
-.thumb .play::after{content:"";border-left:16px solid var(--pink);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
-.rank .thumb .play{width:28px;height:28px}.rank .thumb .play::after{border-left-width:9px;border-top-width:6px;border-bottom-width:6px;margin-left:2px}
-.rank .thumb .ph,.rank .thumb .dur{display:none}
-.thumb .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.72);color:#fff;font-size:.75rem;padding:1px 6px;border-radius:4px}
+/* thumbnail（クリックされやすいデザイン） */
+.thumb{position:relative;aspect-ratio:16/9;overflow:hidden;container-type:inline-size;
+  --c1:#fff0f6;--c2:#ffc9de;--ac:#e6337f;--ink:#7a1240;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(255,255,255,.95) 0 1.2cqw,transparent 1.3cqw),
+    radial-gradient(circle at 54% 10%,rgba(255,255,255,.8) 0 .8cqw,transparent .9cqw),
+    radial-gradient(circle at 46% 88%,rgba(255,255,255,.7) 0 1cqw,transparent 1.1cqw),
+    radial-gradient(ellipse at 80% 60%,rgba(255,255,255,.85),transparent 55%),
+    linear-gradient(135deg,var(--c1),var(--c2))}
+.thumb[data-cat="夫婦関係"]{--c1:#fff4ec;--c2:#ffcfb8;--ac:#e8572f;--ink:#7a2a12}
+.thumb[data-cat="自己理解"]{--c1:#f6f0ff;--c2:#d9c8ff;--ac:#7b4fd6;--ink:#3b1f78}
+.thumb[data-cat="セッション紹介"]{--c1:#eefbf6;--c2:#bfeedd;--ac:#14946a;--ink:#0d4d38}
+.thumb > img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb .face{position:absolute;right:-5cqw;bottom:-6cqw;width:43cqw;aspect-ratio:1;border-radius:50%;
+  background:url(../images/profile.jpg) center/cover;box-shadow:0 0 0 1.2cqw #fff,0 1.5cqw 4cqw rgba(0,0,0,.18)}
+.thumb .copy{position:absolute;left:5cqw;top:4cqw;bottom:10cqw;width:58cqw;display:flex;flex-direction:column;justify-content:center;gap:2.4cqw;
+  font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif}
+.thumb .kicker{align-self:flex-start;background:var(--ac);color:#fff;font-weight:900;font-size:4.2cqw;line-height:1;padding:1.6cqw 2.6cqw;border-radius:99cqw;
+  transform:rotate(-3deg);box-shadow:0 .6cqw 0 rgba(0,0,0,.15)}
+.thumb .catch{margin:0;display:block;overflow:visible;-webkit-line-clamp:unset;color:var(--ink);font-weight:900;font-size:var(--fs,8.4cqw);line-height:1.18;letter-spacing:-.02em;
+  -webkit-text-stroke:2.2cqw #fff;paint-order:stroke fill;text-shadow:0 .8cqw 1.6cqw rgba(0,0,0,.12)}
+.thumb .catch em{font-style:normal;color:var(--ac);background:linear-gradient(transparent 62%,#fff27a 62%,#fff27a 92%,transparent 92%)}
+.thumb .badge{position:absolute;left:3cqw;bottom:3cqw;display:flex;align-items:center;gap:1.4cqw;background:rgba(0,0,0,.72);color:#fff;
+  font-size:3.4cqw;font-weight:700;line-height:1;padding:1.4cqw 2.4cqw;border-radius:1.4cqw}
+.thumb .badge::before{content:"";border-left:2.6cqw solid #fff;border-top:1.6cqw solid transparent;border-bottom:1.6cqw solid transparent}
+.thumb .badge.audio::before{content:"🎧";border:0;font-size:3.4cqw}
+.thumb .play{position:absolute;inset:0;margin:auto;width:18cqw;height:18cqw;border-radius:50%;background:rgba(230,51,127,.92);
+  display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.8);transition:.2s;box-shadow:0 1cqw 4cqw rgba(0,0,0,.25)}
+.thumb .play::after{content:"";border-left:5.4cqw solid #fff;border-top:3.4cqw solid transparent;border-bottom:3.4cqw solid transparent;margin-left:1.4cqw}
+.card:hover .thumb .play,.feat:hover .thumb .play,.rank li:hover .thumb .play,[data-i]:focus-visible .thumb .play{opacity:1;transform:scale(1)}
+@media(hover:none){.thumb .play{display:none}}
 .tag{display:inline-block;font-size:.75rem;color:var(--pink);background:var(--pink-soft);padding:2px 10px;border-radius:999px;font-weight:700}
 .type{display:inline-block;font-size:.72rem;color:var(--muted);border:1px solid var(--line);padding:1px 8px;border-radius:999px;margin-left:6px}
 
@@ -149,30 +174,39 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:28px 16px}
      （共有設定を「リンクを知っている全員」にしてください）
    ・サイト内のファイル  例 videos/intro.mp4 / audio/talk.mp3
    url が空のものは「準備中」として表示されます。
-   thumb（サムネイル画像）は省略可。YouTubeは自動で取得します。
+   サムネイルは kicker（左上の小さい札）と catch（大きい文字）から自動で作ります。
+     catch の **ここ** は強調色＋黄色マーカー、\n は改行です（1行7文字前後・3行までがきれいです）。
+   自分で作った画像を使いたいときは thumb:"画像のURL" を入れてください。
    ========================================================= */
 const ITEMS = [
   { title:"恋愛を壊す本当の原因",
     category:"恋愛", type:"動画", duration:"", featured:true,
+    kicker:"まさか私も…？", catch:"恋愛を**壊す**\n本当の原因",
     desc:"うまくいかない恋愛の奥には、自分でも気づいていない心のパターンがあります。恋愛を壊してしまう本当の原因を、深層心理の視点からわかりやすく解説します。",
     url:"https://youtu.be/MtpCGvljZiA" },
   { title:"夫婦のすれ違いはどこから始まる？ 「言わなくてもわかって」の正体",
     category:"夫婦関係", type:"動画", duration:"9:45",
+    kicker:"夫婦のすれ違い", catch:"「言わなくても\n**わかって**」が\n危ない理由",
     desc:"期待と失望のくり返しが生まれる理由と、関係を立て直す最初の一歩。", url:"" },
   { title:"ラジオ：自己肯定感と恋愛の深い関係",
     category:"自己理解", type:"音声", duration:"18:20",
+    kicker:"聞くだけでOK", catch:"自己肯定感が\n低いと恋が\n**苦しい**理由",
     desc:"通勤中や家事をしながら聞ける音声解説です。", url:"" },
   { title:"親との関係が今のパートナーシップに与える影響",
     category:"自己理解", type:"動画", duration:"14:05",
+    kicker:"見落としがち", catch:"**親との関係**が\n恋愛に出る",
     desc:"子どもの頃に身につけた「愛され方」が、大人の恋愛にどう現れるのか。", url:"" },
   { title:"復縁したいときに最初にやるべきこと・やってはいけないこと",
     category:"恋愛", type:"動画", duration:"11:10",
+    kicker:"焦る前に見て", catch:"復縁で**絶対に**\nやってはいけない\nこと",
     desc:"焦って動く前に知っておきたい、心の整え方。", url:"" },
   { title:"ケンカが増えたときに読み解きたい「本当の気持ち」",
     category:"夫婦関係", type:"音声", duration:"16:40",
+    kicker:"聞くだけでOK", catch:"怒りの奥の\n**本当の気持ち**",
     desc:"怒りの奥にある感情に目を向けると、会話が変わります。", url:"" },
   { title:"体験セッションでは何をするの？ 流れをご紹介",
     category:"セッション紹介", type:"動画", duration:"6:00",
+    kicker:"はじめての方へ", catch:"体験セッションで\n**何がわかる？**",
     desc:"初めての方向けに、体験セッションの流れと受けた方の変化をご紹介します。", url:"" },
 ];
 /* ランキング表示する動画（上の一覧の番号。0が一番上） */
@@ -193,12 +227,22 @@ const RANKING = [0, 1, 3, 2, 4];
     if(/\.(mp3|m4a|wav|ogg)(\?|$)/i.test(url)) return {kind:"audio", src:url};
     return {kind:"video", src:url};
   }
+  // サムネイルの文字：**ここ** が強調色＋マーカー、改行は \n
+  const fmt = t => esc(t).replace(/\*\*(.+?)\*\*/g,"<em>$1</em>").replace(/\n/g,"<br>");
+  // いちばん長い行が枠に収まるよう文字サイズを自動調整
+  const fs = t => { const ls = t.replace(/\*\*/g,"").split("\n");
+    const max = Math.max(...ls.map(l=>[...l].length));
+    return Math.min(ls.length>=3 ? 7.4 : 8.6, 56/max).toFixed(2); };
   function thumbHTML(it){
-    const p = parse(it.url);
-    const src = it.thumb || (p.kind==="youtube" ? `https://i.ytimg.com/vi/${p.id}/hqdefault.jpg` : "");
-    const img = src ? `<img src="${esc(src)}" alt="" loading="lazy">` : `<div class="ph">${esc(it.type==="音声"?"🎧 AUDIO":"▶ VIDEO")}</div>`;
-    const dur = it.duration ? `<span class="dur">${esc(it.url ? it.duration : "準備中")}</span>` : "";
-    return `<div class="thumb">${img}<span class="play" aria-hidden="true"></span>${dur}</div>`;
+    const audio = it.type==="音声";
+    const label = it.url ? (it.duration || (audio ? "音声" : "動画")) : "準備中";
+    const badge = `<span class="badge${audio?" audio":""}">${esc(label)}</span>`;
+    const play = `<span class="play" aria-hidden="true"></span>`;
+    if(it.thumb) return `<div class="thumb"><img class="bg" src="${esc(it.thumb)}" alt="" loading="lazy">${play}${badge}</div>`;
+    return `<div class="thumb" data-cat="${esc(it.category)}" aria-hidden="true">
+      <span class="face"></span>
+      <div class="copy">${it.kicker?`<span class="kicker">${esc(it.kicker)}</span>`:""}<p class="catch" style="--fs:${fs(it.catch || it.title)}cqw">${fmt(it.catch || it.title)}</p></div>
+      ${play}${badge}</div>`;
   }
   const meta = it => `<div><span class="tag">${esc(it.category)}</span><span class="type">${esc(it.type)}</span></div>`;
 
