@@ -152,9 +152,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:28px 16px}
    thumb（サムネイル画像）は省略可。YouTubeは自動で取得します。
    ========================================================= */
 const ITEMS = [
-  { title:"なぜ同じような相手ばかり好きになるのか？ 深層心理から見る恋愛パターン",
-    category:"恋愛", type:"動画", duration:"12:30", featured:true,
-    desc:"気づくといつも似たタイプを選んでしまう…。その背景にある心のしくみを、NotebookLMの解説動画でわかりやすくまとめました。",
+  { title:"恋愛を壊す本当の原因",
+    category:"恋愛", type:"動画", duration:"", featured:true,
+    desc:"うまくいかない恋愛の奥には、自分でも気づいていない心のパターンがあります。恋愛を壊してしまう本当の原因を、深層心理の視点からわかりやすく解説します。",
     url:"https://youtu.be/MtpCGvljZiA" },
   { title:"夫婦のすれ違いはどこから始まる？ 「言わなくてもわかって」の正体",
     category:"夫婦関係", type:"動画", duration:"9:45",
@@ -247,7 +247,7 @@ const RANKING = [0, 1, 3, 2, 4];
     const it = ITEMS[i]; if(!it) return;
     const p = parse(it.url);
     player.className = "player";
-    if(p.kind==="youtube") player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${p.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${esc(it.title)}"></iframe>`;
+    if(p.kind==="youtube") player.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${p.id}?rel=0" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${esc(it.title)}"></iframe>`;
     else if(p.kind==="drive") player.innerHTML = `<iframe src="https://drive.google.com/file/d/${p.id}/preview" allow="autoplay; fullscreen" allowfullscreen title="${esc(it.title)}"></iframe>`;
     else if(p.kind==="audio"){ player.className="player audio"; player.innerHTML = `<audio controls autoplay src="${esc(p.src)}"></audio>`; }
     else if(p.kind==="video") player.innerHTML = `<video controls autoplay playsinline src="${esc(p.src)}"></video>`;
