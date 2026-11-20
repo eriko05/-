@@ -72,6 +72,7 @@
   .checks li{position:relative;background:var(--card);box-shadow:var(--shadow);border-radius:4px;padding:16px 16px 16px 48px;font-size:.95rem;line-height:1.7}
   .checks li::before{content:"";position:absolute;left:16px;top:50%;width:18px;height:10px;border-left:4px solid #333;border-bottom:4px solid #333;transform:translateY(-75%) rotate(-45deg)}
   .checks.gold li{box-shadow:0 4px 14px rgba(201,160,40,.45),0 0 0 1px rgba(214,178,70,.35)}
+  .checks.sky-glow li{box-shadow:0 4px 14px rgba(63,150,210,.32),0 0 0 1px rgba(110,180,230,.30)}
   .checks.pink-glow li{box-shadow:0 4px 14px rgba(230,51,127,.30),0 0 0 1px rgba(230,51,127,.18)}
   .fragile{font-family:"Shippori Mincho","Noto Serif JP",serif;font-weight:400;font-size:1.15em;letter-spacing:.06em}
   .checks.plain li{box-shadow:none;padding:6px 0 6px 36px;background:none}
@@ -220,7 +221,7 @@
   <div class="wrap">
     <h2 class="h-line"><span>でも、現実はこんなふうになっていませんか？</span></h2>
     <img src="images/worried-woman.jpg" width="480" height="360" alt="悩む女性のイラスト" loading="lazy" style="margin:0 auto">
-    <ul class="checks">
+    <ul class="checks sky-glow">
       <li>大切にされたいのに、いつも「自分ばかり」と感じてしまう。</li>
       <li>どんなに相手に尽くしても、相手からは雑に扱われる。</li>
       <li>好きな人を追いかけるばかりで、相手から追いかけてもらえない。</li>
@@ -421,11 +422,14 @@
     <div class="card center poem">
       <img src="images/carnations.jpg" width="900" height="600" alt="赤いカーネーションの花束" loading="lazy" style="margin:-32px -20px 24px;max-width:calc(100% + 40px);width:calc(100% + 40px)">
       <h2 class="h-serif"><span class="mark">深層愛着メソッドが<br>あなたにできること</span></h2>
-      <p>私は、<br>恋愛やパートナーシップの<br>問題は、決して<br>「恋愛だけ」の問題ではなく、</p>
+      <p>私は、<br>恋愛やパートナーシップの<br>問題は、<br>決して「恋愛だけ」の<br>問題ではなく、</p>
       <p>その人の<br>「生きる力」そのものに<br>関わってくるものだと<br>思っています。</p>
-      <p>なぜなら、<br>恋愛や夫婦関係には、<br>その人が<br>どんなふうに人とつながり、<br>どんなふうに愛を受け取り、<br>どんなふうに自分を守りながら<br>生きてきたのかが、<br>とても濃く表れるからです。</p>
-      <p>だから私は、<br>単に恋愛や夫婦関係の<br>問題を解決するためだけに、<br>深層愛着メソッドを<br>行っているわけでは<br>ありません。</p>
-      <p>私が深層愛着メソッドを通して<br>お渡ししたいのは、</p>
+      <p>なぜなら、<br>恋愛や夫婦関係には、<br>その人がどんなふうに<br>人とつながり、</p>
+      <p>どんなふうに<br>愛を受け取り、</p>
+      <p>どんなふうに<br>自分を守りながら<br>生きてきたのかが、</p>
+      <p>とても濃く<br>表れるからです。</p>
+      <p>だから私は、<br>単に恋愛や<br>夫婦関係の問題を<br>解決するためだけに、<br>深層愛着メソッドを<br>行っているわけでは<br>ありません。</p>
+      <p>私が深層愛着メソッドを<br>通してお渡ししたいのは、</p>
       <p>彼に愛されることだけでも、<br>復縁することだけでも、<br>結婚することだけでも<br>ありません。</p>
       <p class="em-blue">安心して生きる力。<br>自分を尊重する力。<br>「私はこれでいい」と思える力。</p>
       <p>そして、<br>結婚したその先も、<br>幸せを育てていける<br>自分になること。</p>
@@ -549,8 +553,6 @@
     <div class="card center poem">
       <img src="images/bouquet.jpg" width="500" height="333" alt="花束" loading="lazy" style="margin:-32px -20px 24px;max-width:calc(100% + 40px);width:calc(100% + 40px)">
       <h2 class="h-serif" style="font-size:1.25rem"><span class="mark-blue">私が大切にしていること</span></h2>
-      <p>「今の彼を諦めましょう」<br>「夫とは別れた方がいいです」</p>
-      <p>と、私が一方的に<br>答えを決めることは<br>ありません。</p>
       <p>私は、お客様が<br>自分の心を理解し、<br>自分にとって幸せな関係を<br>考えられることを<br>大切にしています。</p>
       <p>お話を伺う際は、<br>あなたの経験や感じ方を尊重し、</p>
       <p>ひとつの理論に<br>無理に当てはめたり、<br>短時間で原因を<br>決めつけたりしませんので、<br>ご安心くださいね＾＾</p>
@@ -576,8 +578,8 @@
 
 <!-- ========== CLOSING ========== -->
 <section class="closing">
-  <div class="wrap center poem">
-    <p class="h-serif" style="margin-bottom:24px">結婚したその先も、<br>愛する人と幸せを<br>育てていくために。</p>
+  <div class="wrap center poem" style="font-size:1.15em">
+    <p class="h-serif" style="margin-bottom:24px;font-size:1.8rem">結婚したその先も、<br>愛する人と幸せを<br>育てていくために。</p>
     <p>まずは、<br>今抱えている悩みを<br>一緒に整理するところから<br>始めてみませんか？＾＾</p>
     <p class="em-blue">愛されるために生きる人生から、<br>自分らしく幸せに生きる人生へ。</p>
     <p>その第一歩を、<br>ここから始めてみませんか？＾＾</p>
